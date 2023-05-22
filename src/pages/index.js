@@ -2,10 +2,22 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import { useEffect } from 'react'
+
+import { site, radio, sid, ltd, lou, juso } from './rad'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  useEffect(() => {
+
+    fetch(`${site}?${radio}&${sid}&${ltd}&${lou}&${juso}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err))
+
+  }, [])
+
   return (
     <>
       <Head>
